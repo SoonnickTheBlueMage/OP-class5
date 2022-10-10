@@ -12,7 +12,7 @@ public class Tests
     {
         That(ApplyOperation('*', 5, 2), Is.EqualTo(10));
         That(ApplyOperation('/', 10, 5), Is.EqualTo(2));
-        Catch(() => { ApplyOperation('/', 1, 0); });
-        Catch<UnsupportedOperation>(() => { ApplyOperation('/', 1, 0); });
+        Catch<DivByZero>(() => { ApplyOperation('/', 1, 0); });
+        Catch<UnsupportedOperation>(() => { ApplyOperation('&', 1, 0); });
     }
 }
