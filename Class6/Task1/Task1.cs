@@ -37,30 +37,40 @@ public class Task1
         };
     }
 
-    private static string FormatLhs(string schema, string[] numbers)
+    internal static string FormatLhs(string schema, string[] numbers)
     {
-        var outputString = $"{schema[0]}";
+        var outputString = $"{numbers[0]}";
 
-        for (var i = 0; i < schema.Count(); i++)
-            outputString += $"{numbers[i]}{schema[i + 1]}";
+        for (var i = 0; i < schema.Length; i++)
+            outputString += $"{schema[i]}{numbers[i+1]}";
 
         return outputString;
     }
 
-    private static string ProcessString(string schema, string input)
+    internal static string ProcessString(string schema, string input)
     {
         var transformation = ApplySchema(schema);
         var numbers = input.Split(",");
 
         if (numbers.Length < schema.Length + 1)
-            throw new NotEnoughNumbers(numbers.Count(), input);
+            throw new NotEnoughNumbers(numbers.Length, input);
 
         if (numbers.Length > schema.Length + 1)
             throw new NotEnoughOperations(schema.Length, schema);
 
-        if (numbers.Select(int.Parse).Count() != numbers.Length)
+        try
+        {
+            var n = numbers.Select(int.Parse).Count();
+            if (n != numbers.Length)
+            {
+                throw new WrongNumbersInput(string.Join(" ", numbers));
+            }
+        }
+        catch
+        {
             throw new WrongNumbersInput(string.Join(" ", numbers));
-
+        }
+        
         var result = transformation(numbers.Select(int.Parse).ToList());
         return FormatLhs(schema, numbers) + $"={result}";
     }

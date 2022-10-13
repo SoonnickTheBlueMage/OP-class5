@@ -8,7 +8,7 @@ internal class UnsupportedOperation : Exception
     {
         Console.WriteLine($"Operation '{op}' is not supported");
         Task1.Logger.LogInformation("Stopped program due to UnsupportedOperation error");
-        Environment.Exit(0);
+        //Environment.Exit(0);
     }
 }
 
@@ -18,7 +18,7 @@ internal class NotEnoughNumbers : Exception
     {
         Console.WriteLine($"More than {available} numbers required in ${line}");
         Task1.Logger.LogInformation("Stopped program due to NotEnoughNumbers error");
-        Environment.Exit(0);
+        //Environment.Exit(0);
     }
 }
 
@@ -29,7 +29,7 @@ internal class NotEnoughOperations : Exception
     {
         Console.WriteLine($"More than {available} operations required in ${line}");
         Task1.Logger.LogInformation("Stopped program due to NotEnoughOperations error");
-        Environment.Exit(0);
+        //Environment.Exit(0);
     }
 }
 
@@ -39,7 +39,7 @@ internal class WrongArgsFormat : Exception
     {
         Console.WriteLine($"Program args are incorrect: {args}");
         Task1.Logger.LogInformation("Stopped program due to WrongArgsFormat error");
-        Environment.Exit(0);
+        //Environment.Exit(0);
     }
 }
 
@@ -49,7 +49,7 @@ internal class DivByZero : Exception
     {
         Console.WriteLine($"Division by zero catched");
         Task1.Logger.LogInformation("Stopped program due to DivByZero error");
-        Environment.Exit(0);
+        //Environment.Exit(0);
     }
 }
 
@@ -59,7 +59,7 @@ internal class WrongNumbersInput : Exception
     {
         Console.WriteLine($"Failed to parse [{numbers}] to ints");
         Task1.Logger.LogInformation("Stopped program due to WrongNumbersInput error");
-        Environment.Exit(0);
+        //Environment.Exit(0);
     }
 }
 
@@ -69,7 +69,7 @@ internal class FileDoesNotExist : Exception
     {
         Console.WriteLine($"No such file: {filePath}");
         Task1.Logger.LogInformation("Stopped program due to FileDoesNotExist error");
-        Environment.Exit(0);
+        //Environment.Exit(0);
     }
 }
 
@@ -79,7 +79,7 @@ internal class FilesOfDifferentSize : Exception
     {
         Console.WriteLine("Input files contain different amount of lines");
         Task1.Logger.LogInformation("Stopped program due to FilesOfDifferentSize error");
-        Environment.Exit(0);
+        //Environment.Exit(0);
     }
 }
 
@@ -89,7 +89,7 @@ internal class FileAlreadyExists : Exception
     {
         Console.WriteLine($"File {filePath} already exists");
         Task1.Logger.LogInformation("Stopped program due to FileAlreadyExists error");
-        Environment.Exit(0);
+        //Environment.Exit(0);
     }
 }
 
@@ -99,6 +99,6 @@ internal class FailedToCreateFile : Exception
     {
         Console.WriteLine($"Failed to create file: {filePath}");
         Task1.Logger.LogInformation("Stopped program due to FailedToCreateFile error");
-        Environment.Exit(0);
+        //Environment.Exit(0);
     }
 }

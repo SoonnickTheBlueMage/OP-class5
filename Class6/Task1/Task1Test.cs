@@ -14,4 +14,18 @@ public class Tests
         Catch<DivByZero>(() => { ApplyOperation('/', 1, 0); });
         Catch<UnsupportedOperation>(() => { ApplyOperation('&', 1, 0); });
     }
+
+    [Test]
+    public void FormatLhsTest()
+    {
+        That(FormatLhs("*/", new[] {"1", "2", "3"}), Is.EqualTo("1*2/3"));
+        That(FormatLhs("/*", new[] {"5", "2", "0"}), Is.EqualTo("5/2*0"));
+    }
+    
+    [Test]
+    public void ProcessStringTest()
+    {
+        That(ProcessString("*/", "1,2,3"), Is.EqualTo("1*2/3=0"));
+        That(ProcessString("/**", "100,25,2,6"), Is.EqualTo("100/25*2*6=48"));
+    }
 }
