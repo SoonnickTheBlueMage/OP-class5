@@ -6,7 +6,6 @@ namespace Task1;
 
 public class Tests
 {
-    
     [Test]
     public void ApplyOperationTest()
     {
